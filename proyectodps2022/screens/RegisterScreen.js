@@ -48,7 +48,7 @@ const RegisterScreen = ({ navigation }) => {
     
       
       <View style={styles.container}>
-      <Image style={styles.img} source={require('./src/img/logo.jpeg')}/>
+      <Image style={styles.img} source={require('./img/logo.jpeg')}/>
       </View>
       <Text></Text>
       <View style={styles.container}>
@@ -78,7 +78,7 @@ const RegisterScreen = ({ navigation }) => {
       <Text></Text><Text></Text>
       <View style={styles.container}>
         <View style={{flexDirection:'row'}}>
-          <Image style={styles.icon} source={require('./src/img/gg.png')}></Image>
+          <Image style={styles.icon} source={require('./img/gg.png')}></Image>
           <SafeAreaView style={styles.container}>
         <Btn2 text ="Continuar con Google" />
       </SafeAreaView>
