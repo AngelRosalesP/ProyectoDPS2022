@@ -27,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
   var inc =0,
     peso = 81,
     altura = 167,
-    nivel =1,
+    nivel =5,
     exp = 0,
     imb = 0,
     edad = 27,
