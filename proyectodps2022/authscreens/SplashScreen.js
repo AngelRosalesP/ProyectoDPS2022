@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const SplashScreen = ({ navigation }) => {
   return (
     <View>
       <Text
@@ -11,9 +11,9 @@ const LoginScreen = ({ navigation }) => {
         marginTop: 20,
         marginBottom: 20
       }}
-      > Pantalla de Inicio de Sesion</Text>
+      > Splash </Text>
     </View>
   );
 }
 
-export default LoginScreen;
+export default SplashScreen;
