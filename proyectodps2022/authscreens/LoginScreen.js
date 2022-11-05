@@ -3,7 +3,7 @@ import { Text, View, TextInput, Image, StyleSheet, ScrollView, SafeAreaView, Ale
 import { Registrarse, Btn2 , Regresar} from "../componentes/botones";
 import { useState } from "react";
 
-const RegisterScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
 
   const [state, setState] = useState({
     nombre:'',
@@ -19,8 +19,8 @@ const RegisterScreen = ({ navigation }) => {
     setState({...state, [campo]: value});
   };
 
-  const AgregarUsuario= () =>{
-    if(state.nombre ==="" || state.apellido ==="" || state.email==="" || state.contraseña==="" || state.edad==="" || state.altura==="" || state.peso==="")
+  const LoginUsuario= () =>{
+    if(state.email==="" || state.contraseña==="")
     {
       Alert.alert("Campos vacios")
     }
@@ -34,7 +34,7 @@ const RegisterScreen = ({ navigation }) => {
        // email: state.email,
       //  contraseña: state.contraseña,    
      // })
-      Alert.alert("Los datos se han guardado")
+      Alert.alert("Inicio de sesion exitoso")
       
     }
   }
@@ -48,39 +48,25 @@ const RegisterScreen = ({ navigation }) => {
     
       
       <View style={styles.container}>
-      <Image style={styles.img} source={require('./src/img/logo.jpeg')}/>
+      <Image style={styles.img} source={require('../img/logo.jpeg')}/>
       </View>
       <Text></Text>
       <View style={styles.container}>
-        <TextInput placeholder="Ingresa tu nombre" style={styles.txtbox} onChangeText={(value)=>CapturarDatos("nombre", value)}></TextInput>
-        <Text></Text>
-        <TextInput placeholder="Ingresa tu Apellido" style={styles.txtbox} onChangeText={(value)=>CapturarDatos("apellido", value)}></TextInput>
-        <Text></Text>
         <TextInput keyboardType="email-address" placeholder="E-mail" style={styles.txtbox} onChangeText={(value)=>CapturarDatos("email", value)}></TextInput>
         <Text></Text>
         <TextInput  placeholder="Contraseña" style={styles.txtbox} onChangeText={(value)=>CapturarDatos("contraseña", value)}></TextInput>
       </View>
-      <View style={styles.container}>
-        <View style={{flexDirection:'row'}}>
-          <TextInput keyboardType='numeric'   placeholder="Edad" style={styles.txtbox2} onChangeText={(value)=>CapturarDatos("edad", value)}></TextInput><TextInput></TextInput>
-          <TextInput keyboardType="numeric" placeholder="Peso(kg)" style={styles.txtbox2} onChangeText={(value)=>CapturarDatos("peso", value)}></TextInput>
-        </View>
-      </View>
-      <View style={styles.container}>
-      <TextInput keyboardType='numeric' placeholder="Altura(m)" style={styles.txtbox2} onChangeText={(value)=>CapturarDatos("altura", value)}></TextInput>
-      </View>
       <Text></Text><Text></Text>
       <SafeAreaView style={styles.container}>
-        <Registrarse text ="Registrarse" onPress={()=>AgregarUsuario()} />
+        <Registrarse text ="Iniciar Sesion" onPress={()=>AgregarUsuario()} />
         <Text></Text>
-        <Regresar text='Regresar'></Regresar>
       </SafeAreaView>
       <Text></Text><Text></Text>
       <View style={styles.container}>
         <View style={{flexDirection:'row'}}>
-          <Image style={styles.icon} source={require('./src/img/gg.png')}></Image>
+          <Image style={styles.icon} source={require('../img/gg.png')}></Image>
           <SafeAreaView style={styles.container}>
-        <Btn2 text ="Continuar con Google" />
+        <Btn2 text ="Iniciar con Google" />
       </SafeAreaView>
         </View>
       </View>
@@ -131,4 +117,4 @@ const styles= StyleSheet.create({
   }
 });
 
-export default RegisterScreen;
+export default LoginScreen;
