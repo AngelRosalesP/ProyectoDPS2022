@@ -1,11 +1,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { createStackNavigator } from '@react-navigation/stack';
 
 //pantallas de autentificacion
 import LoginScreen from './authscreens/LoginScreen';
 import RegisterScreen from './authscreens/RegisterScreen';
+import SplashScreen from './authscreens/SplashScreen';
 
 //pantallas dentro de la navegacion de la app
 import DietScreen from './screens/DietScreen';
@@ -14,11 +16,12 @@ import RoutineScreen from './screens/RoutineScreen';
 import HomeScreen from './screens/HomeScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 function AuthTabs() {
   return (
     <Tab.Navigator
-    initialRouteName="Sesion"
+    initialRouteName="Resgistrarse"
     screenOptions={{
       tabBarActiveTintColor : 'blue',
       tabBarShowLabel : false,
@@ -45,7 +48,7 @@ function AuthTabs() {
         }}
         />
      <Tab.Screen
-        name="Registrarse"
+        name="Registro"
         component={RegisterScreen}
         options={{
           //tabBarLabel: 'Registrarse',
@@ -128,7 +131,18 @@ function MyTabs() {
 export default function NavigationApp() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <Stack.Navigator initialRouteName="SplashScreen">
+      <Stack.Screen
+        name="SplashScreen"
+        options={{animationEnabled: false, header: () => null}}
+        component={SplashScreen}
+      />
+      <Stack.Screen
+        name="Registro"
+        options={{animationEnabled: false, header: () => null}}
+        component={RegisterScreen}
+      />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
