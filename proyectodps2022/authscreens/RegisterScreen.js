@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, TextInput, Image, StyleSheet, ScrollView, SafeAreaView, Alert } from "react-native";
 import { Registrarse, Btn2 , Regresar} from "../componentes/botones";
 import { useState } from "react";
+import LoginScreen from "./LoginScreen";
 
 const RegisterScreen = ({ navigation }) => {
 
@@ -73,7 +74,10 @@ const RegisterScreen = ({ navigation }) => {
       <SafeAreaView style={styles.container}>
         <Registrarse text ="Registrarse" onPress={()=>AgregarUsuario()} />
         <Text></Text>
-        <Regresar text='Regresar'></Regresar>
+        <Regresar
+          text="Ya posees una cuenta?"
+          onPress={() => navigation.navigate("Sesion")}
+        />
       </SafeAreaView>
       <Text></Text><Text></Text>
       <View style={styles.container}>

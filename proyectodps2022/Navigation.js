@@ -20,8 +20,8 @@ const Stack = createStackNavigator();
 
 function AuthTabs() {
   return (
+    <Stack.Navigator initialRouteName="Resgistro">
     <Tab.Navigator
-    initialRouteName="Resgistrarse"
     screenOptions={{
       tabBarActiveTintColor : 'blue',
       tabBarShowLabel : false,
@@ -40,7 +40,6 @@ function AuthTabs() {
         name="Sesion"
         component={LoginScreen}
         options={{
-          //tabBarLabel: 'Iniciar Sesion',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account-cog" size={24} color="black" />
           ),
@@ -51,7 +50,6 @@ function AuthTabs() {
         name="Registro"
         component={RegisterScreen}
         options={{
-          //tabBarLabel: 'Registrarse',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="brightness-5" size={24} color="black" />
           ),
@@ -59,13 +57,14 @@ function AuthTabs() {
         }}
         />
     </Tab.Navigator>
+    </Stack.Navigator>
   );
 }
 
 function MyTabs() {
   return (
     <Tab.Navigator
-    initialRouteName="Inicio"
+    initialRouteName="Perfil"
     screenOptions={{
       tabBarActiveTintColor : 'blue',
       tabBarShowLabel : false,
@@ -81,21 +80,9 @@ function MyTabs() {
     }}
     >
     <Tab.Screen
-        name="Inicio"
-        component={HomeScreen}
-        options={{
-          //tabBarLabel : 'Inicio',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" size={24} color="black" />
-          ),
-          headerShown: false,
-        }}
-        />
-    <Tab.Screen
         name="Perfil"
         component={ProfileScreen}
         options={{
-          //tabBarLabel: 'Perfil',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" size={24} color="black" />
           ),
@@ -106,7 +93,6 @@ function MyTabs() {
         name="Dietas"
         component={DietScreen}
         options={{
-          //tabBarLabel: 'Dietas',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="nutrition" size={24} color="black" />
           ),
@@ -117,9 +103,18 @@ function MyTabs() {
         name="Rutinas"
         component={RoutineScreen}
         options={{
-          //tabBarLabel: 'Rutinas',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="weight-lifter" size={24} color="black" />
+          ),
+          headerShown: false,
+        }}
+        />
+        <Tab.Screen
+        name="regresar"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" size={24} color="black" />
           ),
           headerShown: false,
         }}
@@ -141,6 +136,16 @@ export default function NavigationApp() {
         name="Registro"
         options={{animationEnabled: false, header: () => null}}
         component={RegisterScreen}
+      />
+      <Stack.Screen
+        name="Sesion"
+        options={{animationEnabled: false, header: () => null}}
+        component={LoginScreen}
+      />
+      <Stack.Screen
+        name="Mytabs"
+        options={{animationEnabled: false, header: () => null}}
+        component={MyTabs}
       />
       </Stack.Navigator>
     </NavigationContainer>

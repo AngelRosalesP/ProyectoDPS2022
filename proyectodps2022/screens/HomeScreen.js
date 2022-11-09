@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -11,7 +11,11 @@ const HomeScreen = ({ navigation }) => {
         marginTop: 20,
         marginBottom: 20
       }}
-      > Pantalla de Inicio </Text>
+      > Ir a la pantalla de Registro </Text>
+      <Button
+        title="regresar"
+        onPress={() => navigation.navigate('Registro')}
+      />
     </View>
   );
 }

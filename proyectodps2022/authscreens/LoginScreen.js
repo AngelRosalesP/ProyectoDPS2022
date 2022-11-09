@@ -60,6 +60,10 @@ const LoginScreen = ({ navigation }) => {
       <SafeAreaView style={styles.container}>
         <Registrarse text ="Iniciar Sesion" onPress={()=>AgregarUsuario()} />
         <Text></Text>
+        <Regresar
+          text="Regresar"
+          onPress={() => navigation.navigate("Mytabs")}
+        />
       </SafeAreaView>
       <Text></Text><Text></Text>
       <View style={styles.container}>
