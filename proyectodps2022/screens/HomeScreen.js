@@ -16,6 +16,10 @@ const HomeScreen = ({ navigation }) => {
         title="regresar"
         onPress={() => navigation.navigate('Registro')}
       />
+      <Button
+        title="Regresar a la pantalla de Autentificacion"
+        onPress={() => navigation.navigate('AuthTabs')}
+      />
     </View>
   );
 }

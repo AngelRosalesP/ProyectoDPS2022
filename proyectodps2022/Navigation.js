@@ -20,8 +20,7 @@ const Stack = createStackNavigator();
 
 function AuthTabs() {
   return (
-    <Stack.Navigator initialRouteName="Resgistro">
-    <Tab.Navigator
+    <Tab.Navigator initialRouteName="Resgistro"
     screenOptions={{
       tabBarActiveTintColor : 'blue',
       tabBarShowLabel : false,
@@ -57,7 +56,6 @@ function AuthTabs() {
         }}
         />
     </Tab.Navigator>
-    </Stack.Navigator>
   );
 }
 
@@ -141,6 +139,11 @@ export default function NavigationApp() {
         name="Sesion"
         options={{animationEnabled: false, header: () => null}}
         component={LoginScreen}
+      />
+      <Stack.Screen
+        name="AuthTabs"
+        options={{animationEnabled: false, header: () => null}}
+        component={AuthTabs}
       />
       <Stack.Screen
         name="Mytabs"
