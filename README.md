@@ -5,7 +5,6 @@ Proyecto para Diseño y Programación de Software Multiplataforma DPS104 G04T 20
 ## Integrantes del trabajo
 
 - Darío Jeffry Larreynaga Contreras.
-- Jorge Antonio Díaz García.
 - José Ángel Rosales Portillo.
 - Mario Ernesto Medina Martínez.
 - Nelson Ernesto Muñoz Barahona.
