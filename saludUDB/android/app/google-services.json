@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "610726646244",
+    "project_id": "saluddb-26a95",
+    "storage_bucket": "saluddb-26a95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610726646244:android:1a48f8ffc85e167927f7f1",
+        "android_client_info": {
+          "package_name": "com.salududb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610726646244-4pgq612mojeik8fpgddkr8iq7tnjrnjo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salududb",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "610726646244-u7miap1pupvra8k9ba9medflerna411e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7v2kbbP613wNc8AxTEc3SgcfwO6PGvvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610726646244-u7miap1pupvra8k9ba9medflerna411e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

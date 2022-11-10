@@ -1,19 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { Video } from 'expo-av';
+import YoutubeIframe from 'react-native-youtube-iframe';
 
 const DietScreen = ({ navigation }) => {
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
+
   return (
-    <View>
-      <Text
-      style={{
-        fontSize: 48,
-        textAlign: 'center',
-        marginTop: 20,
-        marginBottom: 20
-      }}
-      > Pantalla de dietas </Text>
+    <View style={styles.container} >
+      <YoutubeIframe
+        height={300}
+        play={true}
+        videoId={'u2RsHdU8bTw'}
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  video : {
+    flex:1,
+    alignSelf: 'stretch',
+  },
+  button : {
+    margin : 10,
+  },
+});
 
 export default DietScreen;

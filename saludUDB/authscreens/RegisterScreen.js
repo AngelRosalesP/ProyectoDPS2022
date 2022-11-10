@@ -1,10 +1,91 @@
-import React from "react";
-import { Text, View, TextInput, Image, StyleSheet, ScrollView, SafeAreaView, Alert } from "react-native";
+import React, { useEffect } from "react";
+import { FlatList, Text, View, TextInput, Image, StyleSheet, ScrollView, SafeAreaView, Alert } from "react-native";
 import { Registrarse, Btn2 , Regresar} from "../componentes/botones";
 import { useState } from "react";
-import LoginScreen from "./LoginScreen";
+
+import firestore from '@react-native-firebase/firestore';
+
 
 const RegisterScreen = ({ navigation }) => {
+  
+
+
+    //leyendo datos de la base
+
+  const [data, setData] = useState()
+  const [rtdata, setrtData] = useState([])
+
+  async function loadData(){
+    try{
+      const datos = await firestore().collection('Usuario').get()
+      
+      setData(datos.docs)
+    }catch(e){
+      Alert.alert(e)
+    }
+  }
+
+  async function loadRTdata()
+  {
+    const suscriber = firestore().collection('Usuario').onSnapshot(querySnapshot =>{
+      const datos = []
+      querySnapshot.forEach(documentSnapshot=>{
+        datos.push({
+          ...documentSnapshot.data(),
+          key: documentSnapshot.id
+        })
+      })
+      setrtData(datos)
+    })
+    return()=>suscriber()
+  }
+
+
+  useEffect(()=>{
+    loadData()
+    loadRTdata()
+  }, [])
+
+  
+  function renderItem({ item }){
+    return(
+      <View style={{flexDirection:'row', margin:10}}>
+        <Text>{item.data().nombre_user} </Text>
+        <Text>{item.data().apellido_user} </Text>
+        
+      </View>
+    )
+  }
+  function renderRTItem({ item }){
+    return(
+      <View style={{flexDirection:'row', margin:10}}>
+        <Text>{item.nombre_user} </Text>
+        <Text>{item.apellido_user} </Text>
+        <Text>{item.contraseña} </Text>
+        <Text>{item.email} </Text>
+        <Text>{item.apellido} </Text>
+        <Text>{item.genero} </Text>
+        <Text>{item.edad} </Text>
+        <Text>{item.peso} </Text>
+        <Text>{item.diametro_cadera} </Text>
+        <Text>{item.altura} </Text>
+        <Text>{item.diametro_cintura} </Text>
+        <Text>{item.diametro_cuello} </Text>
+      </View>
+    )
+  }
+
+
+
+
+
+
+
+
+
+
+ //Insertando datosa la base
+
 
   const [state, setState] = useState({
     nombre:'',
@@ -26,16 +107,20 @@ const RegisterScreen = ({ navigation }) => {
       Alert.alert("Campos vacios")
     }
     else{
-      //await firebase.collection('usuario').add({
-       // nombre: state.nombre,
-       // apellido: state.apellido,
-       // edad: state.edad,
-       // altura: state.altura, 
-        //peso: state.peso,  
-       // email: state.email,
-      //  contraseña: state.contraseña,    
-     // })
-      Alert.alert("Los datos se han guardado")
+      
+     try {
+      firestore().collection('Usuario').add({
+        nombre: state.nombre,
+        apellido: state.apellido,
+
+      })
+      } catch (error) {
+        console.log(error)
+      }finally{
+        setState("")
+      }
+    Alert.alert(state.nombre +" "+ state.apellido+ state.altura)
+    
       
     }
   }
@@ -50,6 +135,14 @@ const RegisterScreen = ({ navigation }) => {
       
       <View style={styles.container}>
       <Image style={styles.img} source={require('../img/logo.jpeg')}/>
+      </View>
+      <View style={{padding:10}}>
+        <Text>Informacion RT:</Text>
+        <FlatList 
+          data = {rtdata}
+          renderItem = {renderRTItem}
+          keyExtractor= {item => item.key}
+        />
       </View>
       <Text></Text>
       <View style={styles.container}>
