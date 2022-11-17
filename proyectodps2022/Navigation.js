@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 
 function AuthTabs() {
   return (
-    <Tab.Navigator initialRouteName="Resgistro"
+    <Tab.Navigator initialRouteName="Registro"
     screenOptions={{
       tabBarActiveTintColor : 'blue',
       tabBarShowLabel : false,
